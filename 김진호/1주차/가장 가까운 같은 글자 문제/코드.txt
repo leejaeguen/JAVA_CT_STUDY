@@ -1,0 +1,21 @@
+class Solution {
+    public int[] solution(String s) {
+        int[] answer = new int[s.length()];
+
+        for (int i = 0; i < s.length(); i++) {
+            boolean found = false;
+            for (int j = i - 1; j >= 0; j--) { // i보다 앞에 있는 문자만 탐색
+                if (s.charAt(j) == s.charAt(i)) {
+                    answer[i] = i - j; // 거리 저장
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                answer[i] = -1; // 앞에 같은 문자 없으면 -1
+            }
+        }
+
+        return answer;
+    }
+}
