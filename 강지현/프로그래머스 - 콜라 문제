@@ -1,0 +1,21 @@
+<https://school.programmers.co.kr/learn/courses/30/lessons/132267>
+
+교환되지 않은 콜라를 별도의 변수에 담아 반복문으로 계산하는 구현문제이다.
+
+<pre>
+<code>
+class Solution {
+    public int solution(int a, int b, int n) {
+        int answer = 0;
+        int mo = 0;
+        while(n > 0){
+            n += mo;            //어차피 맨 첫번째 mo는 0이기 때문에 맨먼저와도 상관X
+            mo = n % a;         //남은 콜라병
+            n = n / a * b;      //교환한 콜라병
+            answer += n;        //정답변수에 누적
+        }
+        return answer;
+    }
+}
+</code>
+</pre>
