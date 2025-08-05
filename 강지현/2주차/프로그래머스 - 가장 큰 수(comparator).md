@@ -1,0 +1,26 @@
+```
+import java.util.*;
+class Solution {
+    public String solution(int[] numbers) {
+        
+        String answer = "";
+        List<String> lt = new ArrayList<String>();
+        int zero_cnt = 0;
+        for (int i = 0; i < numbers.length; i++) {
+           lt.add(Integer.toString(numbers[i]));
+            if(numbers[i]==0)zero_cnt++;
+        }
+        if(zero_cnt==numbers.length)return "0";
+        Comparator sc = new Comparator<String>(){
+            public int compare(String o1, String o2){
+                return (o2+o1).compareTo(o1+o2);
+            }      
+        };
+        Collections.sort(lt,sc);
+        for (String s : lt) {
+           answer += s;
+        }
+        return answer;
+    }
+}
+```
