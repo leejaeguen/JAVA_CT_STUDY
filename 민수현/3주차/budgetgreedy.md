@@ -1,3 +1,4 @@
+```
 import java.util.*;
 class Solution {
     public int solution(int[] d, int budget) {
@@ -11,3 +12,4 @@ class Solution {
         return answer;
     }
 }
+```
