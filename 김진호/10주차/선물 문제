@@ -30,6 +30,7 @@ public class adsas {
                 flag=false;
                 break;
             }
+            present.offer(a-b);  // 남은 것 다시 넣기
         }
 
 
