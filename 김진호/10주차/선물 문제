@@ -1,0 +1,42 @@
+import java.util.*;
+
+public class adsas {
+    public static void main(String[] args) {
+
+        PriorityQueue<Integer> present = new PriorityQueue<>(Collections.reverseOrder());
+        PriorityQueue<Integer> children = new PriorityQueue<>(Collections.reverseOrder());
+
+        int N,M;
+        boolean flag=true;
+        Scanner sc=new Scanner(System.in);
+        N=sc.nextInt();
+        M=sc.nextInt();
+
+        for(int i=0; i<N ;i++){  // 선물 상자 입력
+            present.add(sc.nextInt());
+        }
+
+        for(int i=0; i<M ;i++){  // 아이들 원하는 선물 개수 입력
+            children.add(sc.nextInt());
+        }
+
+
+        for(int i=0; i<M ;i++){
+            int a= present.poll();
+            int b= children.poll();   // 제일 큰 값들만 뽑아서 선물의 개수가 아이가 원하는 선물의
+                                      // 개수보다 작으면 실망 => 0 출력
+            if(a<b) {
+                System.out.println("0");
+                flag=false;
+                break;
+            }
+            present.offer(a-b);  // 남은 것 다시 넣기
+        }
+
+
+        if(flag) {                     // 반복문을 끝까지 통과헀다면 각자 원하는 만큼 선물을 가져갔다는 뜻 => 1 출력
+            System.out.println("1");
+        }
+
+    }
+}
